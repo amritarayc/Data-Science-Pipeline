@@ -1,0 +1,60 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+.ipynb
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+*.log
+*.out
+*.bak
+*.tmp
+
+# OS-specific
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Environment and config
+.env
+*.env
+*.ini
+
+# Model weights, checkpoints, and artifacts
+*.h5
+*.ckpt
+*.pth
+*.pt
+*.pb
+*.tflite
+*.joblib
+*.npz
+*.pkl
+
+# Data files
+*.csv
+*.tsv
+*.json
+*.xlsx
+*.xls
+*.npy
+*.zip
+*.tar
+*.tar.gz
+*.png
+
+# VSCode settings
+.vscode/
