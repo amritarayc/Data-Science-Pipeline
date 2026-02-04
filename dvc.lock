@@ -1,0 +1,79 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/data/preprocess.py
+    deps:
+    - path: configs/config.yaml
+      hash: md5
+      md5: e3a809657e6b85e06f1c98bbac511f2d
+      size: 75
+    - path: configs/data/preprocess_DS2.yaml
+      hash: md5
+      md5: ead7fde47c2fa407d5d3e59f6294dfa1
+      size: 352
+    - path: src/data/preprocess.py
+      hash: md5
+      md5: ef561968ec31578270c5e9eb14b21afe
+      size: 4673
+    outs:
+    - path: data/processed/DS2/X_test.csv
+      hash: md5
+      md5: 4ba0e1599d49373d193da955b0f29088
+      size: 3169
+    - path: data/processed/DS2/X_train.csv
+      hash: md5
+      md5: ae4156c825a0ae6fe32066e3288eafb1
+      size: 11705
+    - path: data/processed/DS2/y_test.csv
+      hash: md5
+      md5: 4fb07db6cfb60d3eab191a19a5587cec
+      size: 902
+    - path: data/processed/DS2/y_train.csv
+      hash: md5
+      md5: 6ee175afd6f6c7c785a23f301d7d3a0c
+      size: 3336
+  train_model:
+    cmd: python src/models/model.py
+    deps:
+    - path: configs/config.yaml
+      hash: md5
+      md5: e3a809657e6b85e06f1c98bbac511f2d
+      size: 75
+    - path: configs/data/preprocess_DS2.yaml
+      hash: md5
+      md5: ead7fde47c2fa407d5d3e59f6294dfa1
+      size: 352
+    - path: configs/logging/wandb.yaml
+      hash: md5
+      md5: e3807f63e1df6be84980212c060de36a
+      size: 148
+    - path: configs/model/lasso.yaml
+      hash: md5
+      md5: 193da2e2492d788d1edc99bafe3676ee
+      size: 66
+    - path: data/processed/DS2/X_test.csv
+      hash: md5
+      md5: 4ba0e1599d49373d193da955b0f29088
+      size: 3169
+    - path: data/processed/DS2/X_train.csv
+      hash: md5
+      md5: ae4156c825a0ae6fe32066e3288eafb1
+      size: 11705
+    - path: data/processed/DS2/y_test.csv
+      hash: md5
+      md5: 4fb07db6cfb60d3eab191a19a5587cec
+      size: 902
+    - path: data/processed/DS2/y_train.csv
+      hash: md5
+      md5: 6ee175afd6f6c7c785a23f301d7d3a0c
+      size: 3336
+    - path: src/models/model.py
+      hash: md5
+      md5: 806e586d664731d59d5710d34166b00e
+      size: 4327
+    outs:
+    - path: data/processed/DS2/DS2Model
+      hash: md5
+      md5: 6dc163d2aa6d66c9d1cb499644a49d24.dir
+      size: 10288
+      nfiles: 2

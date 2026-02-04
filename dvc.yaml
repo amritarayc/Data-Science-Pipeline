@@ -1,0 +1,37 @@
+stages:
+#   code-format:
+#     cmd: pre-commit run --all-files
+#     deps:
+#       - .pre-commit-config.yaml
+#       - src/
+#     outs:
+#       - .
+
+  preprocess:
+    cmd: python src/data/preprocess.py
+    deps:
+      - src/data/preprocess.py
+      - configs/config.yaml
+      - configs/data/preprocess_DS2.yaml
+     # - data/raw/Survey_202502210805.xlsx
+     # - data/raw/Variable_Mapping.xlsx
+    outs:
+      - data/processed/DS1/X_train.csv
+      - data/processed/DS1/X_test.csv
+      - data/processed/DS1/y_train.csv
+      - data/processed/DS1/y_test.csv
+
+  train_model:
+    cmd: python src/models/model.py
+    deps:
+      - src/models/model.py
+      - configs/config.yaml
+      - configs/model/lasso.yaml
+      - configs/data/preprocess_DS2.yaml
+      - configs/logging/wandb.yaml
+      - data/processed/DS2/X_train.csv
+      - data/processed/DS2/X_test.csv
+      - data/processed/DS2/y_train.csv
+      - data/processed/DS2/y_test.csv
+    outs:
+      - data/processed/DS2/DS2Model
