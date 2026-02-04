@@ -30,7 +30,6 @@ def main(cfg: DictConfig):
 
     data_cfg = cfg.data
     model_cfg = cfg.model
-    log_cfg = cfg.logging
 
     # Load metadata
     metadata = pd.read_excel(data_cfg.metadata_path)
@@ -55,16 +54,6 @@ def main(cfg: DictConfig):
     X_test  = X_test[input_vars]
     y_train = y_train_df[output_vars].values
     y_test  = y_test_df[output_vars].values
-
-    # Init W&B with descriptive name
-    run_name = f"{model_cfg.model_name}_alpha{model_cfg.alpha}_outputs{len(output_vars)}"
-    wandb.init(
-        project=log_cfg.project,
-        entity=log_cfg.entity,
-        name=run_name,
-        tags=log_cfg.tags,
-        config=OmegaConf.to_container(cfg, resolve=True),
-    )
 
     # Train model
     base_lasso = Lasso(alpha=model_cfg.alpha, max_iter=model_cfg.max_iter, random_state=data_cfg.random_state)
@@ -99,12 +88,6 @@ def main(cfg: DictConfig):
 
     print(f"Model saved to {model_path}")
     print("Metrics:", metrics)
-
-    # Log to W&B
-    wandb.log(metrics)
-    wandb.log({"coefficients": wandb.Table(dataframe=coef_df)})
-    wandb.finish()
-
 
 if __name__ == "__main__":
     main()

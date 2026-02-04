@@ -28,9 +28,9 @@ stages:
       - configs/config.yaml
       - configs/model/lasso.yaml
       - configs/data/preprocess_DS1.yaml
-      - data/processed/DS2/X_train.csv
-      - data/processed/DS2/X_test.csv
-      - data/processed/DS2/y_train.csv
-      - data/processed/DS2/y_test.csv
+      - data/processed/DS1/X_train.csv
+      - data/processed/DS1/X_test.csv
+      - data/processed/DS1/y_train.csv
+      - data/processed/DS1/y_test.csv
     outs:
       - data/processed/DS1/DS1Model
