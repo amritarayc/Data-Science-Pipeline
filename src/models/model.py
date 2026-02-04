@@ -90,11 +90,11 @@ def main(cfg: DictConfig):
                 "coefficient": coef
             })
     coef_df = pd.DataFrame(coef_data)
-    os.makedirs(os.path.join(data_cfg.processed_dir, "DS2Model"), exist_ok=True)
-    coef_df.to_csv(os.path.join(data_cfg.processed_dir, "DS2Model", "model_coefficients.csv"), index=False)
+    os.makedirs(os.path.join(data_cfg.processed_dir, "DS1Model"), exist_ok=True)
+    coef_df.to_csv(os.path.join(data_cfg.processed_dir, "DS1Model", "model_coefficients.csv"), index=False)
 
     # Save model
-    model_path = os.path.join(data_cfg.processed_dir, "DS2Model", "lasso.pkl")
+    model_path = os.path.join(data_cfg.processed_dir, "DS1Model", "lasso.pkl")
     joblib.dump(model, model_path)
 
     print(f"Model saved to {model_path}")

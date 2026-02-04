@@ -1,4 +1,3 @@
 defaults:
-  - data: preprocess_DS2
+  - data: preprocess_DS1
   - model: lasso
-  - logging: wandb

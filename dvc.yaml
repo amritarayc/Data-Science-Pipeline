@@ -12,9 +12,9 @@ stages:
     deps:
       - src/data/preprocess.py
       - configs/config.yaml
-      - configs/data/preprocess_DS2.yaml
-     # - data/raw/Survey_202502210805.xlsx
-     # - data/raw/Variable_Mapping.xlsx
+      - configs/data/preprocess_DS1.yaml
+      - data/raw/Data1.xlsx
+      - data/raw/Variable_Mapping_Data1.xlsx
     outs:
       - data/processed/DS1/X_train.csv
       - data/processed/DS1/X_test.csv
@@ -27,11 +27,10 @@ stages:
       - src/models/model.py
       - configs/config.yaml
       - configs/model/lasso.yaml
-      - configs/data/preprocess_DS2.yaml
-      - configs/logging/wandb.yaml
+      - configs/data/preprocess_DS1.yaml
       - data/processed/DS2/X_train.csv
       - data/processed/DS2/X_test.csv
       - data/processed/DS2/y_train.csv
       - data/processed/DS2/y_test.csv
     outs:
-      - data/processed/DS2/DS2Model
+      - data/processed/DS1/DS1Model

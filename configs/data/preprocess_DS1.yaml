@@ -1,0 +1,14 @@
+#Dataset 2
+raw_data_path: data/raw/Data1.xlsx
+metadata_path: data/raw/Variable_Mapping_Data1.xlsx
+processed_dir: data/processed/DS1
+
+# Following parameters are common
+target_column: "YY"
+test_size: 0.2
+random_state: 42
+output_files:
+  X_train: X_train.csv
+  X_test: X_test.csv
+  y_train: y_train.csv
+  y_test: y_test.csv
