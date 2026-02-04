@@ -18,11 +18,14 @@ Git: For version control of code and DVC files.
     │       └── preprocess.yaml      # Configuration file
     ├── data/
     │   ├── raw/                     # Raw input data (not modified)
-    │   │   └── MiningProcess_Flotation_Plant_Database.csv
+    │   │   └── Data1.xlsx
+    │   │   └── Variable_Mapping_Data1.xlsx  
     │   └── processed/               # Outputs: train/test splits
-    ├── src/data/preprocess.py                # Preprocessing script
+    ├── src/data/preprocess.py       # Preprocessing script
+    ├── src/model/model.py           # Training script
     ├── dvc.yaml                     # DVC pipeline definition
     ├── dvc.lock                     # Auto-generated pipeline state
+    ├── env.yaml                     # To recreate python env
     ├── .gitignore
     └── README.md
 
@@ -30,14 +33,14 @@ Git: For version control of code and DVC files.
 
 ### Add your dataset
 
-Place your raw CSV file inside data/raw/ and update the path in 
+Place your raw CSV or XLSX file inside data/raw/ and update the path in 
     configs/data/preprocess.yaml
 
 ### Update configuration
 
 Edit the following file to customize the pipeline for your dataset: configs/data/preprocess.yaml
 
-    raw_data_path: data/raw/your_data.csv          # Path to your input CSV file
+    raw_data_path: data/raw/your_data.xlsx          # Path to your input file
     processed_dir: data/processed                  # Directory where outputs will be saved
     target_column: "your_target_column"            # Target column to predict
 
